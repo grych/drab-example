@@ -13,6 +13,9 @@ config :drab_example, DrabExample.Endpoint,
   pubsub: [name: DrabExample.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :drab, DrabExample.Endpoint,
+  otp_app: :drab_example
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -20,7 +23,7 @@ config :logger, :console,
 
 config :phoenix, :template_engines,
   drab: Drab.Live.Engine
-  
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
